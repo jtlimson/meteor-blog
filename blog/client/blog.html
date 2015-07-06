@@ -1,0 +1,57 @@
+
+<Template name="templatebody">
+
+<div class="container">
+  <div class="page-header">
+    <h1>Blog</h1>
+    {{> loginButtons}}
+  </div><!--end  header -->
+  {{#if currentUser}}
+    {{> yield}}
+  {{else}}
+    <p>Please login</p>
+  {{/if}}
+  </div><!-- end container -->
+
+</Template>
+
+<template name="appNotFound">
+  <div class="page not-found">
+    <nav>
+      <div class="nav-group">
+        <a href="#" class="js-menu nav-item"><span class="icon-list-unordered"></span></a>
+      </div>
+    </nav>
+
+    <div class="content-scrollable">
+      <div class="wrapper-message">
+        <div class="title-message">404 Page not found</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="loading">
+  Loading&nbsp;<i class="fa fa-spinner fa-spin"></i>
+</template>
+
+<template name="list">
+  <div class="row"><!-- @todo make it responsive!-->
+  <h3>Recent Blog</h3> <div><i class="fa fa fa-angle-double-right"></i>&nbsp;<a class="active" href="/create">Post blog</a></div>
+    <div class="span4">
+    <ul class="fa-ul">
+      {{#each posts}}
+       <li><i class="fa-li fa  fa-square"></i> <a href="/post/{{permalink}}" > {{title}} by {{author}}</a></li>
+      {{/each}}
+    </ul>
+    </div>
+    <div class="span8">
+     {{> content}}
+    </div>
+  </div>
+</template>
+
+<template name="content"> 
+  
+  
+</template>

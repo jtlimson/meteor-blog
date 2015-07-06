@@ -1,0 +1,40 @@
+
+<template name="post">
+  
+  <h1>{{title}}</h1>
+  <h3>by: {{author}}</h3>
+  <p>{{date}}</p>
+  <hr>
+  {{{body}}}
+  <br/>
+  <p> Tags: 
+    {{#each tags}} 
+       <a href="/tags/{{this}}" class="tag"> {{this}}</a>
+    {{/each}}
+   </p>
+  <hr>
+  
+  <div><textarea class="input-xxlarge" id="comment" > say something </textarea> </div>
+  <div><a class="btn">comment</a> </div>
+  Comments:
+  <br/>
+  <ul class="list-unstyled">
+  {{#each comments}}
+    <li>
+    {{body}}
+    <p> by : {{author}} - {{email}}</p>
+    </li>
+  {{/each}}
+  </ul>
+  <br/>
+  <i class="fa fa fa-angle-double-left"></i>&nbsp;<a class="active" href="/">Back</a>
+</template>
+
+<Template name="tags">
+  <h1>tags </h1>
+  <ul class="fa-ul">
+      {{#each tags}}
+       <li><i class="fa-li fa  fa-square"></i> <a href="/post/{{permalink}}" > {{title}} by {{author}}</a></li>
+      {{/each}}
+    </ul>
+</Template>
